@@ -8,20 +8,14 @@ def is_prime(x):
             return False 
     return True 
 
-
 a = int(sys.stdin.readline())
-
 
 for i in range(a):
     n = int(sys.stdin.readline())
-    half = int(n/2)
-    a, b = half, half
-    q=0
-    while q < half:
-        x, y = half-q, half+q
-        if (x==y and is_prime(x)) or (is_prime(x) and is_prime(y)):
-            a, b = x, y
+    a, b = n//2, n//2
+    while a > 0:
+        if is_prime(a) and is_prime(b):
+            print (a, b)
             break
-        q=q+1
-
-    print ("{0} {1}".format(a,b))
+        a -= 1
+        b += 1
