@@ -36,13 +36,16 @@ def set(i: int):
                 set(i+1)
                 check_row[j] = check_diagonal_l[i+j] = check_diagonal_r[i-j+N-1] = False
 
-if N%2 :
+if N==1: print(1)
+elif N==2: print(0)
+elif N==3 : print(0)
+elif N%2 :
     # 홀수일 때 : 첫번째 열에 퀸을 절반만 둬보고 그 때의 경우의 수를 2배로 취한다 (정가운데 제외)
     set(0)
     cnt *= 2
     # 첫번째 열의 정가운데에 퀸을 뒀을 때의 경우의 수를 구해서 더한다.
     j = N//2
-    check_row[j] = check_diagonal_l[j] = check_diagonal_r[-j] = True
+    check_row[j] = check_diagonal_l[j] = check_diagonal_r[-j+N-1] = True
     set(1)
     print(cnt)
 else: 
